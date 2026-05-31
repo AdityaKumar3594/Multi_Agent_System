@@ -210,8 +210,18 @@ def stepper_html(active: int) -> str:
     return f'<div class="stepper-wrap">{items}</div>'
 
 
+def normalize_body(body):
+    if isinstance(body, list):
+        return "\n".join(str(item) for item in body)
+    if isinstance(body, dict):
+        import json
+        return json.dumps(body, indent=2)
+    return str(body)
+
+
 def result_card(icon: str, cls: str, title: str, body: str):
-    safe_body = body.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;")
+    text_body = normalize_body(body)
+    safe_body = text_body.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;")
     st.markdown(
         f'<div class="glass-card">'
         f'  <div class="result-header">'
