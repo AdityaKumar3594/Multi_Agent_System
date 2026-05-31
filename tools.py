@@ -38,6 +38,6 @@ def web_scraping_tool(url: str) -> str:
 
         for tag in soup(['script', 'style', 'nav', 'footer']):
             tag.decompose()
-        return soup.get_text(sep=" ", strip=True)[:3000] 
+        return soup.get_text(separator=" ", strip=True)[:3000]
     except requests.RequestException as e:
         return f"Error fetching the URL: {e}"
