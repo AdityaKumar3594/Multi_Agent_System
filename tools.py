@@ -28,8 +28,6 @@ def web_search_tool(query: str) -> str:
         out.append(f"Title: {title}\nURL: {url}\nSnippet: {snippet}\n")
     return "\n".join(out)
 
-print(web_search_tool.invoke("What is the recent news about AI?"))
-
 #Web scraping tool to scrape the content of a given URL and return the text. It uses requests to fetch the page and BeautifulSoup to parse the HTML and extract the text content, while removing script, style, nav, and footer tags to get cleaner text. The result is limited to 3000 characters to avoid overwhelming the output.
 @tool
 def web_scraping_tool(url: str) -> str:

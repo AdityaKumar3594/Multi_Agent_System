@@ -6,3 +6,4 @@ langchain-mistralai
 tavily
 bs4
 requests
+streamlit
